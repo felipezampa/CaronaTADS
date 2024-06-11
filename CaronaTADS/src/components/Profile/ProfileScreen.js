@@ -3,38 +3,65 @@ import React, { useEffect, useState } from "react";
 import { Alert, Pressable, ScrollView, Text, View } from "react-native";
 import { AuthService } from "../../services/AuthService";
 import { styles } from "./styles";
+import { showMessage } from "react-native-flash-message";
 
 export function ProfileScreen({ navigation }) {
   const [user, setUser] = useState(null);
 
+  /**
+   * @description Recupera os dados do usuário para mostrar na tela
+   */
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        // Obtem os dado e coloca no objeto user
         const userData = await AuthService.getUserLogged();
         setUser(userData);
       } catch (error) {
-        console.log(error);
-        Alert.alert("Erro", "Não foi possível obter os dados do usuário.");
+        showMessage({
+          message: "Erro",
+          description: "Não foi possível obter os dados do usuário.",
+          type: "danger",
+        });
       }
     };
 
     fetchUser();
   }, []);
 
+  /**
+   * @description Faz logout para desligar do sistema
+   */
   const handleLogout = async () => {
     try {
+      // Chama o metodo de logout
       const success = await AuthService.callLogout();
       if (success) {
+        // Remove o token do storage local
         await AsyncStorage.removeItem('caronaUserToken');
+        showMessage({
+          message: "Sucesso no logout",
+          description: "Saindo do sistema",
+          type: "success",
+        });
+        // Redireciona para o login
         navigation.navigate("Login");
       } else {
-        Alert.alert("Erro", "Não foi possível realizar o logout.");
+        showMessage({
+          message: "Erro",
+          description: "Não foi possível realizar o logout.",
+          type: "danger",
+        });
       }
     } catch (error) {
-      console.log("Erro ao realizar logout:", error);
-      Alert.alert("Erro", "Ocorreu um erro ao tentar realizar o logout.");
+      showMessage({
+        message: "Erro",
+        description: `Não foi possível realizar o logout: ${error}`,
+        type: "danger",
+      });
     }
   };
+
   return (
     <ScrollView>
       <View style={styles.container}>

@@ -52,7 +52,7 @@ export default function App() {
         <Stack.Screen name="Autocadastro" component={RegisterScreen} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
       </Stack.Navigator>
-      <FlashMessage position="center" />
+      <FlashMessage position="bottom" />
     </NavigationContainer>
   );
 }

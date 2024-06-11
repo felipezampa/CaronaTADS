@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Accent, Black, InputBackground, Main, Red, White } from '../../../assets/colors';
 
 
 export const styles = StyleSheet.create({
@@ -6,16 +7,18 @@ export const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         paddingHorizontal: 30,
-        paddingVertical: 75
+        paddingVertical: 75,
+        backgroundColor: Main
     },
     bigText: {
         textAlign: 'center',
         fontSize: 50,
         fontWeight: '700',
-        marginBottom: 45
+        marginBottom: 45,
+        color: Accent
     },
     smallText: {
-        color: '#1D1A1A',
+        color: Black,
         fontSize: 18,
         fontWeight: "400",
         paddingLeft: 15
@@ -27,7 +30,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text: {
-        color: '#fff',
+        color: White,
         fontSize: 18,
         fontWeight: "500"
     },
@@ -35,12 +38,12 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 40,
         marginTop: 75,
-        backgroundColor: '#dd0000',
+        backgroundColor: Red,
         borderRadius: 15
     },
     infoText: {
         borderRadius: 8,
-        backgroundColor: "#D9D9D9",
+        backgroundColor: InputBackground,
         padding: 10,
         marginBottom: 20,
         fontSize: 20,
