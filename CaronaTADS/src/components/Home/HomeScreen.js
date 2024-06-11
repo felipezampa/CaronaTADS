@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { Text, View } from "react-native";
+import { styles } from "./styles";
 
-const HomeScreen = ({ route, navigation }) => {
+export function HomeScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
@@ -9,14 +10,3 @@ const HomeScreen = ({ route, navigation }) => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
-});
-
-export default HomeScreen;

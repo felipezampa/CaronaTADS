@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 50,
         fontWeight: '700',
-        marginBottom: 50
+        marginBottom: 45
     },
     smallText: {
         color: '#1D1A1A',
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     text: {
         color: '#fff',
@@ -42,8 +42,8 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: "#D9D9D9",
         padding: 10,
-        marginVertical: 5,
+        marginBottom: 20,
         fontSize: 20,
         fontWeight: "600"
-    }
+    },
 });
