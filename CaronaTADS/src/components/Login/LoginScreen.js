@@ -11,27 +11,6 @@ export function LoginScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   /**
-   * @description Verifica se existe um token do usuário e caso exista então redireciona para a página principal
-   */
-  useEffect(() => {
-    const checkUserLoggedIn = async () => {
-      // Recupera o token
-      const token = await AsyncStorage.getItem('caronaUserToken');
-
-      if (token) {
-        // Chama o endpoint que retorna os dados do usuário logado
-        const userData = await AuthService.getUserLogged();
-        // Se houver dados então redireciona para a página inicial
-        if (userData) {
-          navigation.navigate('MainTabs');
-        } else { }
-      } else { }
-    };
-
-    checkUserLoggedIn();
-  }, []);
-
-  /**
    * @description Lida com o processo de login do usuário. Verifica se os campos de email e senha estão preenchidos,
    * chama o serviço de login, armazena o token do usuário e navega para a tela principal em caso de sucesso.
    * Mostra mensagens de erro apropriadas em caso de falha.
