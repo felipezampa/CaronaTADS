@@ -63,7 +63,7 @@ export function ProfileScreen({ navigation }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.scrollContainer}>
       <View style={styles.container}>
         <Text style={styles.bigText}>Perfil</Text>
         {user ? (

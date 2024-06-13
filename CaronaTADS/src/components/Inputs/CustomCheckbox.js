@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { Accent, White, Black } from '../../../../assets/colors';
+import { Accent, White, Black } from '../../../assets/colors';
 
 const CustomCheckbox = ({ label, onPress }) => {
     return (

@@ -62,5 +62,75 @@ export const RouteService = {
         } catch (error) {
             throw Error(error.message);
         }
+    },
+
+    /**
+     * @description Busca os usuários associados a uma rota específica através de um GET.
+     * @param {number} route_id - ID da rota para a qual os usuários serão buscados.
+     * @returns {Promise<Array>} Lista de usuários associados à rota.
+     */
+    async getUsersByRoute(route_id) {
+        console.log("Buscando usuários para a rota...");
+        let config = await AuthService.getConfig(); // Obtém configuração de autenticação
+
+        try {
+            // Faz uma requisição GET para buscar usuários por rota
+            let users = await axios
+                .get(`${env.back_end}/users/by_route/${route_id}`, config)
+                .then((response) => { return response.data })
+                .catch((error) => { throw Error(error.message); });
+
+            return users;
+        } catch (error) {
+            throw Error(error.message);
+        }
+    },
+
+    /**
+     * @description Obtém todas as rotas disponíveis através de um GET.
+     * @returns {Promise<Array>} Lista de rotas.
+     */
+    async getRoutes() {
+        console.log("Pegando rotas...");
+        let config = await AuthService.getConfig(); // Obtém configuração de autenticação
+
+        try {
+            // Faz uma requisição GET para buscar todas as rotas
+            let routes = await axios
+                .get(`${env.back_end}/routes`, config)
+                .then((response) => {
+                    console.log(response.data); // Exibe os dados da resposta no console
+                    return response.data
+                })
+                .catch((error) => { throw Error(error.message); });
+
+            return routes;
+        } catch (error) {
+            console.log("Erro ao pegar as rotas: " + error.message);
+            throw Error(error.message);
+        };
+    },
+
+    /**
+     * @description Obtém os dados do usuário logado através de um GET.
+     * @returns {Promise<Object>} Dados do usuário logado.
+     */
+    async getCurrentUser() {
+        console.log("Pegando dados do usuário...");
+        let config = await AuthService.getConfig(); // Obtém configuração de autenticação
+
+        try {
+            // Faz uma requisição GET para buscar os dados do usuário logado
+            let userData = await axios
+                .get(`${env.back_end}/logged`, config)
+                .then((response) => { return response.data })
+                .catch((error) => { throw Error(error.message); });
+
+            return userData;
+        } catch (error) {
+            console.log("Erro ao pegar dados do usuário: " + error.message);
+            throw Error(error.message);
+        };
     }
+
 };

@@ -1,6 +1,6 @@
 import { Switch } from 'react-native-switch';
 import { View, StyleSheet, Text } from 'react-native';
-import { Accent, White } from '../../../../assets/colors';
+import { Accent, White } from '../../../assets/colors';
 
 const CustomSwitch = ({ activeText, inactiveText, switchValue, onSwitchHandler }) => {
     if (switchValue === undefined) {

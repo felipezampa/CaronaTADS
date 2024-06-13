@@ -4,9 +4,9 @@ import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { showMessage } from "react-native-flash-message";
 import { Black } from "../../../assets/colors";
 import { RouteService } from "../../services/RouteService";
-import CustomCheckbox from "./Inputs/CustomCheckbox";
-import EndpointLayout from "./Inputs/EndpointLayout";
-import WeekDaySelector from "./Inputs/WeekDaySelector";
+import CustomCheckbox from "../Inputs/CustomCheckbox";
+import EndpointLayout from "../Inputs/EndpointLayout";
+import WeekDaySelector from "../Inputs/WeekDaySelector";
 import { styles } from "./styles";
 
 // Opções de intenções para a rota

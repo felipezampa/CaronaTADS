@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import CustomSwitch from './CustomSwitch';
 import ListPicker from './ListPicker';
-import { White } from '../../../../assets/colors';
+import { White } from '../../../assets/colors';
 
 const EndpointLayout = ({ placesOptions, setPlace, placeIsCampus, switchPlaceType }) => {
     const [listPickerValue, setListPickerValue] = useState(null);
@@ -22,7 +22,6 @@ const EndpointLayout = ({ placesOptions, setPlace, placeIsCampus, switchPlaceTyp
         <View style={styles.endpoint}>
             <View style={styles.endpointValue}>
                 <ListPicker
-
                     value={listPickerValue}
                     placeholder={"Selecione um " + placeIsCampusLabel}
                     list={placesOptions[placeIsCampus]}

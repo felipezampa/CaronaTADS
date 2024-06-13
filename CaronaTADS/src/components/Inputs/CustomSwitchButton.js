@@ -1,6 +1,6 @@
 import { StyleSheet, Pressable, View, Text } from 'react-native';
 import { useState } from 'react';
-import { Accent, Black, White } from '../../../../assets/colors';
+import { Accent, Black, White } from '../../../assets/colors';
 
 const CustomSwitchButton = ({ label, onClickHandler, disabled, containerStyle }) => {
     const [clicked, setClicked] = useState(false);

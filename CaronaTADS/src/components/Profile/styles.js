@@ -3,11 +3,15 @@ import { Accent, Black, InputBackground, Main, Red, White } from '../../../asset
 
 
 export const styles = StyleSheet.create({
+    scrollContainer: {
+        backgroundColor: Main,
+        height: '100%'
+    },
     container: {
         display: 'flex',
         justifyContent: 'center',
         paddingHorizontal: 30,
-        paddingVertical: 75,
+        paddingVertical: 60,
         backgroundColor: Main
     },
     bigText: {

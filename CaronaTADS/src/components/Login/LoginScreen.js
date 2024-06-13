@@ -48,7 +48,7 @@ export function LoginScreen({ navigation }) {
     } catch (error) {
       showMessage({
         message: "Erro",
-        description: "Erro no cadastro: " + error.message,
+        description: "Erro no login: " + error.message,
         type: "danger",
       });
     }
