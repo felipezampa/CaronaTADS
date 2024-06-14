@@ -5,12 +5,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FlashMessage from "react-native-flash-message";
+import { Accent, AccentLight, Main } from "./assets/colors";
 import { HomeScreen } from "./src/components/Home/HomeScreen";
+import { InspectRouteScreen } from "./src/components/InspectRoute/InspectRouteScreen";
 import { LoginScreen } from "./src/components/Login/LoginScreen";
 import { ProfileScreen } from "./src/components/Profile/ProfileScreen";
 import { RegisterScreen } from "./src/components/Register/RegisterScreen";
 import { RouteScreen } from "./src/components/Route/RouteScreen";
-import { Accent, AccentLight, Main, Secondary } from "./assets/colors";
 
 
 const Stack = createStackNavigator();
@@ -51,6 +52,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Autocadastro" component={RegisterScreen} options={{ headerShown: false }} />
         <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="Detalhes" component={InspectRouteScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
       <FlashMessage position="bottom" />
     </NavigationContainer>

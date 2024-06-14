@@ -9,6 +9,10 @@ import { styles } from "./styles";
 const IntentionSection = ({ intention, users, navigation, route }) => {
     if (users.length == 0) return null;
 
+    const navigateToDetails = () => {
+        navigation.navigate('Detalhes', { intention, users });
+    };
+
     const intentionStyles = StyleSheet.create({
         scrollContainer: {
             marginVertical: 10,
@@ -45,10 +49,12 @@ const IntentionSection = ({ intention, users, navigation, route }) => {
     });
     return (
         <ScrollView style={intentionStyles.scrollContainer}>
-            <View style={intentionStyles.container} onTouchEnd={() => navigation.navigate("Perfil")}>
-                <Text style={intentionStyles.header}>{intention}</Text>
-                <Text style={intentionStyles.studentCount}>Quantidade de alunos: {users.length}</Text>
-            </View>
+            <Pressable onPress={navigateToDetails}>
+                <View style={intentionStyles.container}>
+                    <Text style={intentionStyles.header}>{intention}</Text>
+                    <Text style={intentionStyles.studentCount}>Quantidade de alunos: {users.length}</Text>
+                </View>
+            </Pressable>
         </ScrollView>
     );
 
@@ -99,7 +105,6 @@ export function HomeScreen({ navigation }) {
         async function fetchCurrentUser() {
             try {
                 let currentUser = await RouteService.getCurrentUser(); // Busca o usuário atual
-                console.log(currentUser); // Exibe o usuário atual no console
                 setUser(currentUser); // Define o usuário atual no estado
             } catch (error) {
                 console.error('Erro ao carregar usuário atual:', error); // Trata erros de carregamento do usuário atual
